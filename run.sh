@@ -55,4 +55,4 @@ else
 fi
 
 
-dig +short @"$DNS_SERVER_IP"  nginx.external-dns-test.homelab.com
+dig +short @"$DNS_SERVER_IP"  "$TEST_FQDN"
