@@ -5,8 +5,30 @@ set -eux
 # always start clean
 ./delete.sh
 
-minikube start
-minikube addons enable ingress
+# start kind cluster with ingress settings and install ingress controller
+cat <<EOF | kind create cluster --config=-
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+  kubeadmConfigPatches:
+  - |
+    kind: InitConfiguration
+    nodeRegistration:
+      kubeletExtraArgs:
+        node-labels: "ingress-ready=true"
+  extraPortMappings:
+  - containerPort: 80
+    hostPort: 80
+    protocol: TCP
+  - containerPort: 443
+    hostPort: 443
+    protocol: TCP
+- role: worker
+EOF
+
+# minikube start
+# minikube addons enable ingress
 
 sleep 20
 
