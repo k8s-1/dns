@@ -4,6 +4,7 @@ resources:
 - external-dns.yaml
 - ingress.yaml
 - pihole-deploy.yaml
+- pihole-nodeport.yaml
 - pihole-secret.yaml
 - pihole-svc.yaml
 - service-example.yaml
