@@ -9,7 +9,7 @@ services:
       - "53:53/udp"
     command: -conf /etc/coredns/Corefile
 
-networks:
+networks: # use same network as cluster
   kind_network:
     external:
       name: kind
