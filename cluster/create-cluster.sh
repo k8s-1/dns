@@ -9,3 +9,5 @@ nodes:
   - role: worker
 EOF
 kubectl cluster-info --context kind-kind
+
+kustomize build ./manifests/ | kubectl apply -f -
