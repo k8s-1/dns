@@ -37,7 +37,7 @@ spec:
           valueFrom:
             secretKeyRef:
               name: pihole-password
-              key: PIHOLE_PASSWORD
+              key: password
         volumeMounts:
         - name: pihole-config
           mountPath: /etc/pihole
