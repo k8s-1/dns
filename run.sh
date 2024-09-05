@@ -19,6 +19,8 @@ minikube addons enable ingress
 
 kustomize build ./cluster/ | kubectl apply -f -
 
+sleep 5
+
 cd coredns
 # configure corefile to use variable nodeport
 NODE_PORT=$(kubectl get svc pihole-nodeport -o jsonpath='{.spec.ports[0].nodePort}')
@@ -30,6 +32,8 @@ sed \
 # run coredns
 docker-compose up -d
 cd ..
+
+sleep 5
 
 # query our server from a client in the same subnet or from the server directly
 # docker by default uses bridge networking - a private virtual network @172.*.*.* on the docker host
