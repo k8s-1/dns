@@ -1,4 +1,5 @@
 # kubernetes dns
+Kubernetes networking and DNS demo project.
 
 ## Start
 ```
