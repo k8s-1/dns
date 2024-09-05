@@ -6,7 +6,7 @@ metadata:
   annotations:
     external-dns.alpha.kubernetes.io/hostname: nginx.external-dns-test.homelab.com
 spec:
-  type: LoadBalancer
+  # type: LoadBalancer
   ports:
   - port: 80
     name: http
