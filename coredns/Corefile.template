@@ -3,4 +3,7 @@
 
 .:53 {
     forward . NODE_IP:NODE_PORT
+    log
+    errors
+    debug
 }
