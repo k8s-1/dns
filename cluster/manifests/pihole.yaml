@@ -46,10 +46,10 @@ spec:
         volumeMounts:
         - name: pihole-config
           mountPath: /etc/pihole
+        securityContext:
+          capabilities:
+            add:
+            - NET_ADMIN
       volumes:
       - name: pihole-config
         emptyDir: {}
-      securityContext:
-        capabilities:
-          add:
-          - NET_ADMIN
