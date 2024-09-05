@@ -8,6 +8,8 @@ set -eux
 minikube start
 minikube addons enable ingress
 
+sleep 20
+
 # kind create cluster --config - <<EOF
 # kind: Cluster
 # apiVersion: kind.x-k8s.io/v1alpha4
