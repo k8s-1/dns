@@ -12,5 +12,6 @@ fi
 cd coredns && docker-compose down
 cd - || exit
 
-minikube stop
+minikube stop || true
+minikube delete || true
 # kind delete cluster
