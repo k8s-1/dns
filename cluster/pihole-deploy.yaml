@@ -14,16 +14,6 @@ spec:
       labels:
         app: pihole
     spec:
-      initContainers:
-      - name: disable-password
-        image: pihole/pihole:latest
-        command:
-        - /bin/sh
-        - -c
-        - "pihole -a -p ''"
-        volumeMounts:
-        - name: pihole-config
-          mountPath: /etc/pihole
       containers:
       - image: pihole/pihole:latest
         name: pihole
@@ -43,6 +33,11 @@ spec:
           value: 'supersecret'
         - name: FTLCONF_dns_listeningMode
           value: 'all'
+        - name: WEBPASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: pihole-password
+              key: PIHOLE_PASSWORD
         volumeMounts:
         - name: pihole-config
           mountPath: /etc/pihole
