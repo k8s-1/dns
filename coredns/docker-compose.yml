@@ -11,5 +11,5 @@ services:
 
 networks: # use same network as cluster
   kind_network:
-    external:
-      name: kind
+    name: kind
+    external: true
