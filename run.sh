@@ -32,8 +32,12 @@ dig @"$DNS_SERVER_IP" host.test.homelab
 
 
 # temporarily override local DNS /etc/resolve.conf
-sudo cp /etc/resolv.conf /etc/resolv.conf.bkp
-echo "nameserver $DNS_SERVER_IP" | sudo tee /etc/resolv.conf
+if [ ! -f /etc/resolv.conf.bkp ]; then
+  sudo cp /etc/resolv.conf /etc/resolv.conf.bkp
+  echo "nameserver $DNS_SERVER_IP" | sudo tee /etc/resolv.conf
+else
+  echo "/etc/resolv.conf.bkp already exists!"
+fi
 
 
 dig +short @"$DNS_SERVER_IP"  nginx.external-dns-test.homelab.com
