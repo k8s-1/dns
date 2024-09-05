@@ -10,4 +10,4 @@ fi
 cd coredns && docker-compose down
 cd - || exit
 
-
+kind delete cluster
