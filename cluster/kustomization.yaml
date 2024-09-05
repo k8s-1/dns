@@ -1,5 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- pihole-dns-deploy.yaml
+- external-dns.yaml
+- ingress.yaml
+- pihole-deploy.yaml
+- pihole-secret.yaml
 - pihole-svc.yaml
+- service-example.yaml
