@@ -25,7 +25,9 @@ spec:
   - host: nginx.example.org
     http:
       paths:
-      - backend:
+      - path: /
+        pathType: Prefix
+        backend:
           service:
             name: nginx
             port:
