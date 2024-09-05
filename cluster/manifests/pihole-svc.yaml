@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: pihole
+  name: pihole
+spec:
+  ports:
+  - name: port-1-tcp
+    port: 53
+    protocol: TCP
+    targetPort: 53
+  - name: port-1-udp
+    port: 53
+    protocol: UDP
+    targetPort: 53
+  - name: port-2
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  - name: port-3
+    port: 443
+    protocol: TCP
+    targetPort: 443
+  selector:
+    app: pihole
+  type: NodePort
+status:
+  loadBalancer: {}
