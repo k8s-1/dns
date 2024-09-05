@@ -14,3 +14,8 @@ localhost
     ---> cluster DNS
     ---> app
 ```
+
+## Troubleshooting
+```
+kubectl run debug -it --rm --image nicolaka/netshoot:latest
+```
