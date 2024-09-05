@@ -11,7 +11,7 @@ nodes:
 EOF
 kubectl cluster-info --context kind-kind
 
-kustomize build ./cluster/manifests/ | kubectl apply -f -
+kustomize build ./cluster/ | kubectl apply -f -
 
 cd coredns
 # configure corefile to use variable nodeport
