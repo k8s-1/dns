@@ -1,11 +1,12 @@
 #!/bin/bash
 
+# configure corefile to use variable nodeport
 NODE_PORT=$(kubectl get svc pihole -o jsonpath='{.spec.ports[0].nodePort}')
 NODE_IP=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type=="InternalIP")].address}')
-
-sed -i \
+sed \
   -e "s/NODE_PORT/$NODE_PORT/g" \
-  -e "s/NODE_IP/$NODE_IP/g" ./Corefile.template
+  -e "s/NODE_IP/$NODE_IP/g" \
+  ./Corefile.template > ./Corefile
 
 # run coredns
 docker-compose up -d
