@@ -85,7 +85,7 @@ else
 fi
 
 
-dig @"$NODE_PORT" -p "$NODE_IP" "$TEST_FQDN"
+dig @"$NODE_IP" -p "$NODE_PORT" "$TEST_FQDN"
 
 
 kubectl run migrate -it --rm --restart=Never --image=nicolaka/netshoot -- /bin/sh -c 'dig @pihole.default.svc.cluster.local nginx.example.org'
