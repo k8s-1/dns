@@ -54,7 +54,7 @@ kustomize build ./cluster/ | { kubectl apply -f - || kubectl apply -f - ;}
 sleep 5
 
 cd coredns
-configure corefile to use variable nodeport
+# configure corefile to use variable nodeport
 NODE_PORT=$(kubectl get svc pihole-nodeport -o jsonpath='{.spec.ports[0].nodePort}')
 NODE_IP=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type=="InternalIP")].address}')
 sed \
