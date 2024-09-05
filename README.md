@@ -5,7 +5,12 @@
 ./run.sh
 ```
 
-## Setup
+## Network diagram
 ```
-localhost ---> example.domain.com ---> DNS proxy ----> nodePort address (i.e. loadbalancer) ---> cluster DNS ---> app
+localhost 
+    ---> request example.domain.com
+    ---> DNS proxy
+    ---> nodePort address (i.e. loadbalancer)
+    ---> cluster DNS
+    ---> app
 ```
