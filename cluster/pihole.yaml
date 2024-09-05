@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: pihole
+  name: pihole
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pihole
+  template:
+    metadata:
+      labels:
+        app: pihole
+    spec:
+      initContainers:
+      - name: disable-password
+        image: pihole/pihole:latest
+        command:
+        - /bin/sh
+        - -c
+        - "pihole -a -p ''"
+        volumeMounts:
+        - name: pihole-config
+          mountPath: /etc/pihole
+      containers:
+      - image: pihole/pihole:latest
+        name: pihole
+        ports:
+        - containerPort: 53
+          protocol: TCP
+        - containerPort: 53
+          protocol: UDP
+        - containerPort: 80
+          protocol: TCP
+        - containerPort: 443
+          protocol: TCP
+        env:
+        - name: TZ
+          value: 'Europe/London'
+        - name: FTLCONF_webserver_api_password
+          value: 'supersecret'
+        - name: FTLCONF_dns_listeningMode
+          value: 'all'
+        volumeMounts:
+        - name: pihole-config
+          mountPath: /etc/pihole
+      volumes:
+      - name: pihole-config
+        emptyDir: {}
+      securityContext:
+        capabilities:
+          add:
+          - NET_ADMIN
