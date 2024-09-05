@@ -4,7 +4,7 @@ set -eux
 
 workdir="$(pwd)"
 
-./"$workdir"/cluster/create-cluster.sh
+"$workdir"/cluster/create-cluster.sh
 
-./"$workdir"/coredns/create-dns.sh
+"$workdir"/coredns/create-dns.sh
 
