@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eu
+
 # configure corefile to use variable nodeport
 NODE_PORT=$(kubectl get svc pihole -o jsonpath='{.spec.ports[0].nodePort}')
 NODE_IP=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type=="InternalIP")].address}')
