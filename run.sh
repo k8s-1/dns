@@ -55,4 +55,9 @@ else
 fi
 
 
-dig +short @"$DNS_SERVER_IP"  "$TEST_FQDN"
+dig @"$DNS_SERVER_IP" "$TEST_FQDN"
+
+
+
+kubectl run --restart=Never --image=infoblox/dnstools:latest dnstools -- /bin/sh -c "dig @pihole.default.svc.cluster.local nginx.example.org"
+kubectl delete pod dnstools
