@@ -71,7 +71,7 @@ sleep 5
 # docker by default uses bridge networking - a private virtual network @172.*.*.* on the docker host
 
 TEST_FQDN=nginx.example.org
-DNS_SERVER_IP=$(docker inspect coredns | jq -r '.[0].NetworkSettings.Networks.coredns_default.IPAddress')
+DNS_SERVER_IP=$(docker inspect coredns | jq -r '.[0].NetworkSettings.Networks.kind.IPAddress')
 dig @"$DNS_SERVER_IP" "$TEST_FQDN"
 
 
