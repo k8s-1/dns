@@ -5,6 +5,6 @@ resources:
 - ingress.yaml
 - pihole-deploy.yaml
 - pihole-nodeport.yaml
-- pihole-secret.yaml
+- pihole-password.yaml
 - pihole-svc.yaml
 - service-example.yaml
