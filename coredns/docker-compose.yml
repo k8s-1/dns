@@ -5,7 +5,6 @@ services:
     restart: always
     volumes:
       - ./Corefile:/etc/coredns/Corefile
-      - ./example.db:/etc/coredns/example.db
     ports:
       - "53:53/udp"
     command: -conf /etc/coredns/Corefile
