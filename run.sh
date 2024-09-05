@@ -5,14 +5,17 @@ set -eux
 # always start clean
 ./delete.sh
 
-kind create cluster --config - <<EOF
-kind: Cluster
-apiVersion: kind.x-k8s.io/v1alpha4
-nodes:
-  - role: control-plane
-  - role: worker
-EOF
-kubectl cluster-info --context kind-kind
+minikube start
+minikube addons enable ingress
+
+# kind create cluster --config - <<EOF
+# kind: Cluster
+# apiVersion: kind.x-k8s.io/v1alpha4
+# nodes:
+#   - role: control-plane
+#   - role: worker
+# EOF
+# kubectl cluster-info --context kind-kind
 
 kustomize build ./cluster/ | kubectl apply -f -
 
