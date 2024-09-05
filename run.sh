@@ -2,7 +2,9 @@
 
 set -eux
 
-cd cluster && ./create-cluster.sh && cd -
+workdir="$(pwd)"
 
-cd coredns && ./create-dns.sh && cd -
+./"$workdir"/cluster/create-cluster.sh
+
+./"$workdir"/coredns/create-dns.sh
 
