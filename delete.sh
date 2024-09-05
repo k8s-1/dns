@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -eux
 
 cd coredns && docker-compose down
 cd - || exit
