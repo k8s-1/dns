@@ -58,6 +58,4 @@ fi
 dig @"$DNS_SERVER_IP" "$TEST_FQDN"
 
 
-
-kubectl run --restart=Never --image=infoblox/dnstools:latest dnstools -- /bin/sh -c "dig @pihole.default.svc.cluster.local nginx.example.org"
-kubectl delete pod dnstools
+kubectl run migrate -it --rm --restart=Never --image=nicolaka/netshoot -- /bin/sh -c 'dig @pihole.default.svc.cluster.local nginx.example.org'
