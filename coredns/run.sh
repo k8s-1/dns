@@ -1,5 +1,12 @@
 #!/bin/bash
 
+NODE_PORT=$(kubectl get svc pihole -o jsonpath='{.spec.ports[0].nodePort}')
+NODE_IP=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type=="InternalIP")].address}')
+
+sed -i \
+  -e "s/NODE_PORT/$NODE_PORT/g" \
+  -e "s/NODE_IP/$NODE_IP/g" ./Corefile.template
+
 # run coredns
 docker-compose up -d
 
