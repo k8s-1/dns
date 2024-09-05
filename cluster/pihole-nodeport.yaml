@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: pihole
-  name: pihole
+  name: pihole-nodeport
 spec:
   ports:
   - name: dns-tcp
