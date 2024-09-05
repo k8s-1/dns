@@ -29,3 +29,8 @@ cd ..
 # docker by default uses bridge networking - a private virtual network @172.*.*.* on the docker host
 DNS_SERVER_IP=$(docker inspect coredns | jq -r '.[0].NetworkSettings.Networks.coredns_default.IPAddress')
 dig @"$DNS_SERVER_IP" host.test.homelab
+
+
+# temporarily override local DNS /etc/resolve.conf
+cp /etc/resolv.conf /etc/resolv.conf.bkp
+echo "nameserver $DNS_SERVER_IP" > /etc/resolv.conf
