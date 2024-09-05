@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eu
+set -eux
 
 # configure corefile to use variable nodeport
 NODE_PORT=$(kubectl get svc pihole -o jsonpath='{.spec.ports[0].nodePort}')

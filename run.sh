@@ -1,4 +1,4 @@
 #!/bin/bash
 
-set -e
+set -eux
 cd coredns && ./run.sh
