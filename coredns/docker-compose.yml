@@ -8,3 +8,8 @@ services:
     ports:
       - "53:53/udp"
     command: -conf /etc/coredns/Corefile
+
+networks:
+  kind_network:
+    external:
+      name: kind
