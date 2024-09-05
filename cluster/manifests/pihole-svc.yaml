@@ -6,11 +6,11 @@ metadata:
   name: pihole
 spec:
   ports:
-  - name: port-1-tcp
+  - name: dns-tcp
     port: 53
     protocol: TCP
     targetPort: 53
-  - name: port-1-udp
+  - name: dns-udp
     port: 53
     protocol: UDP
     targetPort: 53
