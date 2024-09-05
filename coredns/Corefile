@@ -2,5 +2,5 @@
 # forward everything on port 53 to NodePort IP
 
 example.com:53 {
-    forward . NODEPORT_IP:30100
+    forward . NODEPORT_IP:NODEPORT_PORT
 }
