@@ -17,7 +17,7 @@ minikube addons enable ingress
 # EOF
 # kubectl cluster-info --context kind-kind
 
-kustomize build ./cluster/ | kubectl apply -f -
+kustomize build ./cluster/ | { kubectl apply -f - || kubectl apply -f - ;}
 
 sleep 5
 
