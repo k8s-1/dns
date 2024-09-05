@@ -32,5 +32,5 @@ dig @"$DNS_SERVER_IP" host.test.homelab
 
 
 # temporarily override local DNS /etc/resolve.conf
-cp /etc/resolv.conf /etc/resolv.conf.bkp
-echo "nameserver $DNS_SERVER_IP" > /etc/resolv.conf
+sudo cp /etc/resolv.conf /etc/resolv.conf.bkp
+echo "nameserver $DNS_SERVER_IP" | sudo tee /etc/resolv.conf

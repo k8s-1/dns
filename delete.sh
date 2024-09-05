@@ -3,8 +3,8 @@
 set -eux
 
 if [ -f /etc/resolv.conf.bkp ]; then
-  cp /etc/resolv.conf.bkp /etc/resolv.conf
-  rm /etc/resolv.conf.bkp
+  sudo cp /etc/resolv.conf.bkp /etc/resolv.conf
+  sudo rm /etc/resolv.conf.bkp
 fi
 
 cd coredns && docker-compose down
