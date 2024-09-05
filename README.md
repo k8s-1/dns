@@ -7,5 +7,5 @@
 
 ## Setup
 ```
-localhost ---> example.domain.com ---> DNS proxy ----> nodePort address ---> cluster DNS ---> app
+localhost ---> example.domain.com ---> DNS proxy ----> nodePort address (i.e. loadbalancer) ---> cluster DNS ---> app
 ```
