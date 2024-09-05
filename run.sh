@@ -1,4 +1,4 @@
 #!/bin/bash
 
 set -eux
-cd coredns && ./run.sh
+cd coredns && ./create-dns.sh
