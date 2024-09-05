@@ -9,7 +9,7 @@
 ```
 localhost 
     ---> request example.domain.com
-    ---> DNS proxy
+    ---> DNS proxy listens on local DNS port 53
     ---> nodePort address (i.e. loadbalancer)
     ---> cluster DNS
     ---> app
