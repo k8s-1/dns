@@ -39,8 +39,10 @@ sleep 5
 
 # query our server from a client in the same subnet or from the server directly
 # docker by default uses bridge networking - a private virtual network @172.*.*.* on the docker host
+
+DNS_TEST_RECORD=nginx.example.org
 DNS_SERVER_IP=$(docker inspect coredns | jq -r '.[0].NetworkSettings.Networks.coredns_default.IPAddress')
-dig @"$DNS_SERVER_IP" host.test.homelab
+dig @"$DNS_SERVER_IP" "$DNS_TEST_RECORD"
 
 
 # temporarily override local DNS /etc/resolve.conf
