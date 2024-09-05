@@ -2,7 +2,10 @@
 
 set -eux
 
-kind delete cluster && kind create cluster --config - <<EOF
+# always start clean
+./delete.sh
+
+kind create cluster --config - <<EOF
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 nodes:
