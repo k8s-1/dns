@@ -1,6 +1,6 @@
 # DNS zone 1
 # forward everything on DNS port 53 to NodePort IP
 
-test.homelab:53 {
+.:53 {
     forward . NODE_IP:NODE_PORT
 }
