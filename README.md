@@ -8,12 +8,12 @@ Kubernetes networking and DNS demo project.
 
 ## Network Topology
 ```
-================================HOST NETWORK================================
+=========================HOST NETWORK=====================================
 USER ~ GET https://nginx.example.org
 *DNS resolution*                 *traffic*
  |                                |
  |                                |
-================================KIND DOCKER NETWORK=========================
+=========================KIND DOCKER NETWORK==============================
  |                                |
 DNS forwarder .:53 UDP/TCP        |
  | * dockerized coredns           |
