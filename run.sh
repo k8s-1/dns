@@ -61,7 +61,7 @@ sleep 20
 # EOF
 # kubectl cluster-info --context kind-kind
 
-kustomize build ./cluster/ | { kubectl apply -f - || kubectl apply -f - ;}
+kustomize build ./cluster/ | kubectl apply -f -
 
 sleep 5
 
