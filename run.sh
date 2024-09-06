@@ -108,4 +108,7 @@ sleep 60
 
 
 nslookup nginx.example.org
+
 dig nginx.example.org
+
+curl -L nginx.example.org
