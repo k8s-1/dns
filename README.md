@@ -8,7 +8,7 @@ Kubernetes networking and DNS demo project.
 
 ## Network Topology
 ```
-=========================HOST NETWORK=====================================
+=========================DOCKER HOST NETWORK==============================
 USER ~ GET https://nginx.example.org
 *DNS resolution*                 *traffic*
  |                                |
