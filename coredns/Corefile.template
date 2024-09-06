@@ -2,7 +2,7 @@
 # forward everything on DNS port 53 to NodePort IP
 
 .:53 {
-    forward . DNS_IP
+    forward . NODE_IP:NODE_PORT
     log
     errors
     debug
