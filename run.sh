@@ -64,7 +64,7 @@ sleep 20
 
 kustomize build ./cluster/ | kubectl apply -f -
 
-sleep 5
+sleep 30
 
 cd coredns
 # configure corefile to use variable nodeport
