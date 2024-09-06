@@ -6,37 +6,30 @@ Kubernetes networking and DNS demo project.
 ./run.sh
 ```
 
-## Network diagram
+## Network Topology
 ```
-localhost 
-    ---> request example.domain.com
-    ---> DNS forwarder listens on local port 53 TCP/UDP for resolution requests
-    ---> nodePort address (i.e. loadbalancer)
-    ---> cluster DNS
-    ---> app
+================================HOST NETWORK================================
+USER ~ GET https://nginx.example.org
+PATH 1 - *DNS resolution*        PATH 2 - *traffic*
+ |                                |
+ |                                |
+ |                                |
+DNS forwarder .:53 UDP/TCP coredns|
+ |                                |
+================================KIND CLUSTER NETWORK=========================
+ |                                |
+ |                                |
+DNS :53 pihole           LOADBALANCER metallb
+                                  |
+                                  |
+                         INGRESS CONTROLLER nginx
+                                   \
+                                    \ nginx.default.svc.cluster.local
+                                     \
+                                      \ nginx app
 ```
 
 ## Troubleshooting
 ```
 kubectl run debug -it --rm --image nicolaka/netshoot:latest
 ```
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <script type="module">
-      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
-      mermaid.initialize({startOnLoad:true});
-    </script>
-</head>
-<body>
-    <div class="mermaid">
-      graph TD;
-        A[Router] --> B(Switch);
-        B --> C[PC1];
-        B --> D[PC2];
-        B --> E[PC3];
-    </div>
-</body>
-</html>
