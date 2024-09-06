@@ -10,16 +10,18 @@ Kubernetes networking and DNS demo project.
 ```
 ================================HOST NETWORK================================
 USER ~ GET https://nginx.example.org
-PATH 1 - *DNS resolution*        PATH 2 - *traffic*
+*DNS resolution*                 *traffic*
  |                                |
  |                                |
+================================KIND DOCKER NETWORK=========================
  |                                |
-DNS forwarder .:53 UDP/TCP coredns|
+DNS forwarder .:53 UDP/TCP        |
+ | (dockerized coredns)
  |                                |
-================================KIND CLUSTER NETWORK=========================
  |                                |
  |                                |
 DNS :53 pihole           LOADBALANCER metallb
+(internal cluster DNS deploy)     |
                                   |
                                   |
                          INGRESS CONTROLLER nginx
