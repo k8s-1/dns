@@ -21,11 +21,12 @@ DNS forwarder .:53 UDP/TCP        |
  |                                |
  |                                |
  |                                |
-DNS :53 pihole           LOADBALANCER metallb * exposes services on private network 192.168... 
-* internal cluster DNS            |             as IP's (only accessible inside kind network)
+DNS :53 pihole                    |
+* internal cluster DNS            |
 * automatic records               |
 * managed by external-dns         |
                                   |
+                        LOADBALANCER metallb * exposes services on private network address range 192.168...
                                   |
                          INGRESS CONTROLLER nginx
                                    \
