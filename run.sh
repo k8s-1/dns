@@ -45,6 +45,7 @@ kubectl apply -f - -n kube-system
 
 
 
+kustomize build ./infra/ | kubectl apply -f -
 
 
 # minikube start
