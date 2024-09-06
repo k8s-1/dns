@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: pihole
-  name: pihole-lb
+  name: pihole-nodeport
 spec:
   ports:
   - name: dns-tcp
@@ -24,4 +24,4 @@ spec:
     targetPort: 443
   selector:
     app: pihole
-  type: LoadBalancer
+  type: NodePort
