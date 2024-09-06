@@ -16,12 +16,15 @@ USER ~ GET https://nginx.example.org
 ================================KIND DOCKER NETWORK=========================
  |                                |
 DNS forwarder .:53 UDP/TCP        |
- | (dockerized coredns)
+ | * dockerized coredns           |
+ | * available to docker host     |
  |                                |
  |                                |
  |                                |
 DNS :53 pihole           LOADBALANCER metallb
-(internal cluster DNS deploy)     |
+* internal cluster DNS            |
+* automatic records               |
+* managed by external-dns         |
                                   |
                                   |
                          INGRESS CONTROLLER nginx
