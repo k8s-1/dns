@@ -2,6 +2,8 @@
 
 set -eux
 
+workdir="$(pwd)"
+
 # always start clean
 ./delete.sh
 
@@ -28,6 +30,8 @@ nodes:
 EOF
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 
+cd "$workdir"/cluster/tls && ./create-certs.sh && cd -
+
 sleep 20
 
 kubectl wait --namespace ingress-nginx \
@@ -36,13 +40,10 @@ kubectl wait --namespace ingress-nginx \
   --timeout=180s
 
 
-
-
 # metallb
 kubectl get configmap kube-proxy -n kube-system -o yaml | \
 sed -e "s/strictARP: false/strictARP: true/" | \
 kubectl apply -f - -n kube-system
-
 
 
 kustomize build ./infra/ | kubectl apply -f -
