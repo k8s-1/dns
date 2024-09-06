@@ -68,7 +68,7 @@ cd coredns
 # configure corefile to use variable nodeport
 DNS_IP=$(kubectl get service pihole-lb -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 sed \
-  -e "s/DNS_IP/$LB_IP/g" \
+  -e "s/DNS_IP/$DNS_IP/g" \
   ./Corefile.template > ./Corefile
 # run coredns
 docker-compose up -d
