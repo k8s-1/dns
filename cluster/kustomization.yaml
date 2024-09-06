@@ -7,4 +7,4 @@ resources:
 - pihole-deploy.yaml
 - pihole-password.yaml
 - pihole-svc.yaml
-- pihole-svc-lb.yaml
+- pihole-svc-nodeport.yaml
