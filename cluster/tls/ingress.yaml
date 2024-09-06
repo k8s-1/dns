@@ -4,6 +4,10 @@ metadata:
   name: nginx
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - nginx.example.org
+    secretName: my-demo-app-tls
   rules:
   - host: nginx.example.org
     http:
