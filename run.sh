@@ -82,10 +82,6 @@ sleep 5
 # query our server from a client in the same subnet or from the server directly
 # docker by default uses bridge networking - a private virtual network @172.*.*.* on the docker host
 
-TEST_FQDN=nginx.example.org
-DNS_SERVER_IP=$(docker inspect coredns | jq -r '.[0].NetworkSettings.Networks.kind.IPAddress')
-dig @"$DNS_SERVER_IP" "$TEST_FQDN"
-
 
 # temporarily override local DNS /etc/resolve.conf
 if [ -f /etc/resolv.conf.bkp ]; then
@@ -93,10 +89,11 @@ if [ -f /etc/resolv.conf.bkp ]; then
   exit 1
 else
   sudo cp /etc/resolv.conf /etc/resolv.conf.bkp
-  echo "nameserver $DNS_SERVER_IP" | sudo tee /etc/resolv.conf
+  echo "nameserver $DNS_IP" | sudo tee /etc/resolv.conf
 fi
 
 
+TEST_FQDN=nginx.example.org
 dig @"$DNS_IP" "$TEST_FQDN"
 
 
