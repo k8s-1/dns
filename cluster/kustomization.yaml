@@ -5,6 +5,6 @@ resources:
 - external-dns.yaml
 - metallb-pool-cr.yaml
 - pihole-deploy.yaml
-- pihole-nodeport.yaml
 - pihole-password.yaml
 - pihole-svc.yaml
+- pihole-svc-lb.yaml
