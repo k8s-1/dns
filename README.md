@@ -26,9 +26,10 @@ DNS :53 pihole                    |
 * automatic records               |
 * managed by external-dns         |
                                   |
-                        LOADBALANCER metallb * exposes services on private network address range 192.168...
+                        LOADBALANCER metallb * exposes services on private address range
+                                  |            192.168.200.X-192.168.200.X
                                   |
-                         INGRESS CONTROLLER nginx
+                        INGRESS CONTROLLER nginx
                                    \
                                     \ nginx.default.svc.cluster.local
                                      \
