@@ -21,7 +21,7 @@ DNS forwarder .:53 UDP/TCP        |
  |                                |
  |                                |
  |                                |
-DNS :53 pihole           LOADBALANCER metallb * exposes services on private network 192.168...
+DNS :53 pihole           LOADBALANCER metallb * exposes services on private network 192.168... as IP
 * internal cluster DNS            |
 * automatic records               |
 * managed by external-dns         |
