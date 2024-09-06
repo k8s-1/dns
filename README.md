@@ -20,3 +20,23 @@ localhost
 ```
 kubectl run debug -it --rm --image nicolaka/netshoot:latest
 ```
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({startOnLoad:true});
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+      graph TD;
+        A[Router] --> B(Switch);
+        B --> C[PC1];
+        B --> D[PC2];
+        B --> E[PC3];
+    </div>
+</body>
+</html>
