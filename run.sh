@@ -28,14 +28,15 @@ nodes:
     protocol: TCP
 - role: worker
 EOF
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 kubectl apply -f ingress-nginx.yaml
-
-kustomize build ./traefik/ | kubectl apply -f -
 
 cd "$workdir"/cluster/tls && ./create-certs.sh && cd -
 
 sleep 20
+
+kustomize build ./traefik/ | kubectl apply -f -
+
+sleep 10
 
 kubectl wait --namespace ingress-nginx \
   --for=condition=ready pod \
@@ -55,7 +56,7 @@ kustomize build ./infra/ | kubectl apply -f -
 # minikube start
 # minikube addons enable ingress
 
-sleep 20
+sleep 10
 
 # kind create cluster --config - <<EOF
 # kind: Cluster
@@ -108,7 +109,7 @@ dig @"$NODE_IP" -p "$NODE_PORT" "$TEST_FQDN"
 kubectl run migrate -it --rm --restart=Never --image=nicolaka/netshoot -- /bin/sh -c 'dig @pihole.default.svc.cluster.local nginx.example.org'
 
 
-sleep 60
+sleep 30
 
 
 nslookup nginx.example.org
