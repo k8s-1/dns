@@ -32,7 +32,7 @@ kubectl apply -f ingress-nginx.yaml
 
 cd "$workdir"/cluster/tls && ./create-certs.sh && cd -
 
-sleep 20
+sleep 60
 
 kustomize build ./traefik/ | kubectl apply -f -
 
