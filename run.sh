@@ -34,7 +34,7 @@ cd "$workdir"/cluster/tls && ./create-certs.sh && cd -
 
 sleep 20
 
-kustomize build ./traefik/ | kubectl apply -f -
+# kustomize build ./traefik/ | kubectl apply -f -
 
 sleep 10
 
