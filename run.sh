@@ -29,6 +29,7 @@ nodes:
 - role: worker
 EOF
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+kubectl apply -f ingress-nginx.yaml
 
 cd "$workdir"/cluster/tls && ./create-certs.sh && cd -
 
