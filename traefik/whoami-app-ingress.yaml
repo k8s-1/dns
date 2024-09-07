@@ -4,7 +4,8 @@ metadata:
   name: whoami-ingress
 spec:
   rules:
-  - http:
+  - host: whoami.traefik
+    http:
       paths:
       - path: /
         pathType: Prefix
