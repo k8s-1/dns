@@ -31,6 +31,8 @@ EOF
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 kubectl apply -f ingress-nginx.yaml
 
+kustomize build ./traefik/ | kubectl apply -f -
+
 cd "$workdir"/cluster/tls && ./create-certs.sh && cd -
 
 sleep 20
