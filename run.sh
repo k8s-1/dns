@@ -32,10 +32,6 @@ kubectl apply -f ingress-nginx.yaml
 
 cd "$workdir"/cluster/tls && ./create-certs.sh && cd -
 
-sleep 60
-
-kustomize build ./traefik/ | kubectl apply -f -
-
 sleep 20
 
 kubectl wait --namespace ingress-nginx \
@@ -43,15 +39,16 @@ kubectl wait --namespace ingress-nginx \
   --selector=app.kubernetes.io/component=controller \
   --timeout=180s
 
-
 # metallb
 kubectl get configmap kube-proxy -n kube-system -o yaml | \
 sed -e "s/strictARP: false/strictARP: true/" | \
 kubectl apply -f - -n kube-system
 
-
 kustomize build ./infra/ | kubectl apply -f -
 
+sleep 60
+
+kustomize build ./traefik/ | kubectl apply -f -
 
 # minikube start
 # minikube addons enable ingress
