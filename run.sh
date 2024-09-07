@@ -34,9 +34,9 @@ cd "$workdir"/cluster/tls && ./create-certs.sh && cd -
 
 sleep 20
 
-# kustomize build ./traefik/ | kubectl apply -f -
+kustomize build ./traefik/ | kubectl apply -f -
 
-sleep 10
+sleep 20
 
 kubectl wait --namespace ingress-nginx \
   --for=condition=ready pod \
