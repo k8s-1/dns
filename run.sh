@@ -43,26 +43,16 @@ kubectl wait --namespace ingress-nginx \
 kubectl get configmap kube-proxy -n kube-system -o yaml | \
 sed -e "s/strictARP: false/strictARP: true/" | \
 kubectl apply -f - -n kube-system
-
 kustomize build ./infra/ | kubectl apply -f -
-
 sleep 60
 
+
+
+# traefik ingress-controller
 kustomize build ./traefik/ | kubectl apply -f -
 
-# minikube start
-# minikube addons enable ingress
 
 sleep 30
-
-# kind create cluster --config - <<EOF
-# kind: Cluster
-# apiVersion: kind.x-k8s.io/v1alpha4
-# nodes:
-#   - role: control-plane
-#   - role: worker
-# EOF
-# kubectl cluster-info --context kind-kind
 
 kustomize build ./cluster/ | kubectl apply -f -
 
