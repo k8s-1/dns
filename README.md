@@ -29,11 +29,14 @@ DNS :53 pihole                    |
                         LOADBALANCER metallb * exposes services on private ip range
                                   |            192.168.200.X-192.168.200.X
                                   |
-                        INGRESS CONTROLLER nginx
-                                   \
-                                    \ nginx.default.svc.cluster.local
-                                     \
-                                      \ nginx app
+                                  |
+                                  |
+                                  |
+    INGRESS CONTROLLER nginx      +      INGRESS CONTROLLER traefik
+               \
+                \ nginx.default.svc.cluster.local
+                 \
+                  \ nginx app
 ```
 
 ## Troubleshooting
