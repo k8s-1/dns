@@ -56,7 +56,7 @@ kustomize build ./infra/ | kubectl apply -f -
 # minikube start
 # minikube addons enable ingress
 
-sleep 10
+sleep 30
 
 # kind create cluster --config - <<EOF
 # kind: Cluster
@@ -69,7 +69,7 @@ sleep 10
 
 kustomize build ./cluster/ | kubectl apply -f -
 
-sleep 5
+sleep 10
 
 cd coredns
 # configure corefile to use variable nodeport
