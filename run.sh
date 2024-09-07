@@ -114,3 +114,4 @@ nslookup nginx.example.org
 dig nginx.example.org
 
 curl -L nginx.example.org
+curl -L whoami.traefik
