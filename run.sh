@@ -133,5 +133,5 @@ nslookup nginx.example.org
 
 dig nginx.example.org
 
-curl -L nginx.example.org
-curl -L whoami.traefik
+curl -L nginx.example.org # mkcert local CA
+curl -kL whoami.traefik.com # self-signed lets-encrypt
