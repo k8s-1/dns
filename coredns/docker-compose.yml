@@ -1,0 +1,17 @@
+services:
+  coredns:
+    image: coredns/coredns
+    container_name: coredns
+    restart: always
+    volumes:
+      - ./Corefile:/etc/coredns/Corefile
+    ports:
+      - "53:53/udp"
+    command: -conf /etc/coredns/Corefile
+    networks:
+      - kind_network
+
+networks: # use same network as cluster
+  kind_network:
+    name: kind
+    external: true
