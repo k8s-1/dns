@@ -6,6 +6,3 @@ resources:
 - sa.yaml
 - traefik-svc.yaml
 - traefik.yaml
-- whoami-app-deploy.yaml
-- whoami-app-ingress.yaml
-- whoami-app-svc.yaml
