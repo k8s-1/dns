@@ -134,4 +134,4 @@ nslookup nginx.example.org
 dig nginx.example.org
 
 curl -L nginx.example.org # mkcert local CA
-curl -kL whoami.traefik.com # self-signed lets-encrypt
+curl -kL whoami.traefik.com # self-signed lets-encrypt staging -> non-trusted certificate, good for testing
