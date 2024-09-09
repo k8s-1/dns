@@ -47,9 +47,12 @@ kustomize build ./infra/ | kubectl apply -f -
 sleep 60
 
 
-
 # traefik ingress-controller
 kustomize build ./traefik/ | kubectl apply -f -
+
+
+# cert-manager + let's encrypt tls
+kustomize build ./cert-manager/ | kubectl apply -f -
 
 
 sleep 30
